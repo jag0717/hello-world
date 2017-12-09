@@ -150,18 +150,17 @@ unique_items_count = hp_df["Item ID"].nunique()
 # Number of purchases
 total_purchase = len(hp_df["Price"])
 # Total Revenue
-total_revenue = sum(hp_df["Price"])
-# total_rev = "$" + format(total_revenue,".2f")
-total_rev = "$" + str(round(total_revenue,2))
+total_revenue = hp_df["Price"].sum()
+total_rev = "$" + format(total_revenue,".2f")
+
 # Average Purchase Price
-# avg_purchase_price = "$" + format(total_revenue/total_purchase,".2f")
-avg_purchase_price = round(total_revenue/total_purchase,2)
-avg_purchase_price = "$" + str(avg_purchase_price)
+avg_purchase_price = "$" + str(round(total_revenue/total_purchase,2))
 # Purchasing Analysis (Total)
 pa_table = pd.DataFrame({"Number of Unique Items": unique_items_count,
                          "Average Price": avg_purchase_price,
                          "Number of Purchases": total_purchase,
                          "Total Revenue": total_rev }, index=[0])
+
 pa_table[["Number of Unique Items", "Average Price", "Number of Purchases","Total Revenue"]]
 ```
 
